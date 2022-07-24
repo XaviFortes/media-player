@@ -21,10 +21,9 @@ jobs:
     #needs: install
     name: Build
     env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: self-hosted
     steps:
-      - run: echo $GH_TOKEN
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
