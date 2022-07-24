@@ -24,7 +24,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     runs-on: self-hosted
     steps:
-      - run: export GH_TOKEN="$GH_TOKEN"
+      - run: export GH_TOKEN=${{ secrets.GH_TOKEN }}
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - uses: actions/checkout@v2
@@ -34,6 +34,6 @@ jobs:
           #cache: 'yarn'
       - run: npm install --global yarn
       - run: yarn install
-      - run: GH_TOKEN=$GH_TOKEN yarn build:linux
+      - run: GH_TOKEN=${{ secrets.GH_TOKEN }} yarn build:linux
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
