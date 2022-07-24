@@ -20,6 +20,8 @@ jobs:
   build:
     #needs: install
     name: Build
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
