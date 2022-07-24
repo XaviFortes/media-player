@@ -73,6 +73,7 @@
 		"test": "jest",
 		"start": "electron .",
 		"start:debug": "ELECTRON_ENABLE_LOGGING=1 electron .",
+		"rimraf": "./node_modules/rimraf/bin.js",
 		"icon": "rimraf assets/generated && electron-icon-maker --input=assets/youtube-music.png --output=assets/generated",
 		"generate:package": "node utils/generate-package-json.js",
 		"postinstall": "yarn run icon && yarn run plugins",
