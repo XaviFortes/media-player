@@ -73,7 +73,6 @@
 		"test": "jest",
 		"start": "electron .",
 		"start:debug": "ELECTRON_ENABLE_LOGGING=1 electron .",
-		"rimraf": "./node_modules/rimraf/bin.js",
 		"icon": "rimraf assets/generated && electron-icon-maker --input=assets/youtube-music.png --output=assets/generated",
 		"generate:package": "node utils/generate-package-json.js",
 		"postinstall": "yarn run icon && yarn run plugins",
@@ -88,7 +87,7 @@
 		"changelog": "auto-changelog",
 		"plugins": "yarn run plugin:adblocker",
 		"plugin:adblocker": "rimraf plugins/adblocker/ad-blocker-engine.bin && node plugins/adblocker/blocker.js",
-		"release:linux": "yarn run clean && electron-builder --linux -p always -c.snap.publish=github",
+		"release:linux": "yarn run clean && electron-builder --linux -p always",
 		"release:mac": "yarn run clean && electron-builder --mac -p always",
 		"release:win": "yarn run clean && electron-builder --win -p always"
 	},
@@ -118,6 +117,7 @@
 		"filenamify": "^4.3.0",
 		"hark": "^1.2.3",
 		"html-to-text": "^8.2.0",
+		"jsprim": "^1.4.2",
 		"md5": "^2.3.0",
 		"mpris-service": "^2.1.2",
 		"node-fetch": "^2.6.7",
@@ -134,7 +134,8 @@
 		"jest": "^27.3.1",
 		"playwright": "^1.17.1",
 		"rimraf": "^3.0.2",
-		"xo": "^0.45.0"
+		"xo": "^0.45.0",
+		"json-schema": "^0.4.0"
 	},
 	"resolutions": {
 		"glob-parent": "5.1.2",
