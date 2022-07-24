@@ -6,17 +6,17 @@ on:
     branches: [ main, master ]
 
 jobs:
-  install:
-    name: Pretest Install
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          #cache: 'yarn'
-      - run: npm install --global yarn
-      - run: yarn install
+#  install:
+#    name: Pretest Install
+#    runs-on: self-hosted
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/setup-node@v3
+#        with:
+#          node-version: '16'
+#          #cache: 'yarn'
+#      - run: npm install --global yarn
+#      - run: yarn install
   build:
     needs: install
     name: Build
@@ -29,4 +29,4 @@ jobs:
           #cache: 'yarn'
       - run: npm install --global yarn
       - run: yarn install
-      - run: build:nomac
+      - run: yarn build:nomac
