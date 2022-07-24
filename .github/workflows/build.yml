@@ -6,14 +6,20 @@ on:
     branches: [ main, master ]
 
 jobs:
+  install:
+    name: Install
+    runs-on: self-hosted
+    steps:
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: install
   build:
+    needs: install
     name: Build
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: install
+      
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: release:win
