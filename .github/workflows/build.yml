@@ -18,7 +18,7 @@ jobs:
 #      - run: npm install --global yarn
 #      - run: yarn install
   build:
-    needs: install
+    #needs: install
     name: Build
     runs-on: self-hosted
     steps:
