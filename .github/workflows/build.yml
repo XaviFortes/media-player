@@ -29,4 +29,4 @@ jobs:
           #cache: 'yarn'
       - run: npm install --global yarn
       - run: yarn install
-      - run: yarn build:nomac
+      - run: yarn build:linux
