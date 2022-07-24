@@ -7,7 +7,7 @@ on:
 
 jobs:
   install:
-    name: Test Install
+    name: Pretest Install
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
@@ -22,13 +22,11 @@ jobs:
     name: Build
     runs-on: self-hosted
     steps:
-      - run: apk update
-      - run: apk add discover
-      - run: apk add wine
       - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v3.0.0
+      - uses: actions/setup-node@v3
         with:
-          cmd: install
-      - uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: build:nomac
+          node-version: '16'
+          #cache: 'yarn'
+      - run: npm install --global yarn
+      - run: yarn install
+      - run: build:nomac
