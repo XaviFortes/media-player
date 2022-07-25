@@ -17,9 +17,12 @@ jobs:
 #          #cache: 'yarn'
 #      - run: npm install --global yarn
 #      - run: yarn install
-  build:
+  build-linux:
     #needs: install
-    name: Build
+    name: Build Linux
+    tags:
+      - linux
+    stage: build
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     runs-on: self-hosted
@@ -43,6 +46,49 @@ jobs:
       - run: npm install --global yarn
       - run: yarn install
       - run: GH_TOKEN=${{ secrets.GH_TOKEN }} yarn build:linux
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          #files: ./coverage1.xml,./coverage2.xml # optional
+          #flags: unittests # optional
+          #name: codecov-umbrella # optional
+          #fail_ci_if_error: true # optional (default = false)
+          verbose: true
+      - run: |
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          chmod +x codecov
+          ./codecov -t ${CODECOV_TOKEN}
+ build-windows:
+    #needs: install
+    name: Build Windows
+    tags:
+      - windows
+    stage: build
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    runs-on: self-hosted
+    steps:
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          #files: ./coverage1.xml,./coverage2.xml # optional
+          #flags: unittests # optional
+          #name: codecov-umbrella # optional
+          #fail_ci_if_error: true # optional (default = false)
+          verbose: true
+      - run: export GH_TOKEN=${{ secrets.GH_TOKEN }}
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          #cache: 'yarn'
+      - run: npm install --global yarn
+      - run: yarn install
+      - run: GH_TOKEN=${{ secrets.GH_TOKEN }} yarn build:win
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - uses: codecov/codecov-action@v3
