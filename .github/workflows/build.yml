@@ -19,9 +19,7 @@ jobs:
 #      - run: yarn install
   build:
     #needs: install
-    name: Build Linux
-    tags:
-      - linux
+    name: Build
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     runs-on: self-hosted
