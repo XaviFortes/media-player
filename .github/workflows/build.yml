@@ -60,9 +60,6 @@ jobs:
   build-windows:
      #needs: install
      name: Build Windows
-     tags:
-        - windows
-     stage: build
      env:
        GH_TOKEN: ${{ secrets.GH_TOKEN }}
      runs-on: self-hosted
