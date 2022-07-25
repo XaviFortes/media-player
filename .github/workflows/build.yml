@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: codecov/codecov-action@v3
         with:
-          #token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           #files: ./coverage1.xml,./coverage2.xml # optional
           #flags: unittests # optional
           #name: codecov-umbrella # optional
@@ -45,3 +45,7 @@ jobs:
       - run: GH_TOKEN=${{ secrets.GH_TOKEN }} yarn build:linux
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      #- run: |
+      #    curl -Os https://uploader.codecov.io/latest/linux/codecov
+      #    chmod +x codecov
+      #    ./codecov -t ${CODECOV_TOKEN}
