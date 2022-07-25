@@ -22,7 +22,6 @@ jobs:
     name: Build Linux
     tags:
       - linux
-    stage: build
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     runs-on: self-hosted
