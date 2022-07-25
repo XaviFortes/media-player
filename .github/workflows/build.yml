@@ -17,9 +17,9 @@ jobs:
 #          #cache: 'yarn'
 #      - run: npm install --global yarn
 #      - run: yarn install
-  build:
+  build-linux:
     #needs: install
-    name: Build
+    name: Build Linux
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     runs-on: self-hosted
@@ -79,7 +79,7 @@ jobs:
            #cache: 'yarn'
        - run: npm install --global yarn
        - run: yarn install
-       - run: GH_TOKEN=${{ secrets.GH_TOKEN }} yarn build:win
+       - run: yarn build:win
          env:
            GH_TOKEN: ${{ secrets.GH_TOKEN }}
        - uses: codecov/codecov-action@v3
