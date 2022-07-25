@@ -20,8 +20,7 @@ jobs:
   build-linux:
     #needs: install
     name: Build Linux
-    tags:
-      - linux
+    tags: [ linux ]
     stage: build
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -63,8 +62,7 @@ jobs:
   build-windows:
      #needs: install
      name: Build Windows
-     tags:
-       - windows
+     tags: [ windows ]
      stage: build
      env:
        GH_TOKEN: ${{ secrets.GH_TOKEN }}
