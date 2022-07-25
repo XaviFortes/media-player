@@ -32,7 +32,7 @@ hr {
   overflow: visible;
 }
 pre {
-  font-family: monospace, monospace;
+  font-family: monospace;
   font-size: 1em;
 }
 a {
@@ -41,22 +41,17 @@ a {
 }
 abbr[title] {
   border-bottom: none;
-  text-decoration: underline;
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 b,
 strong {
-  font-weight: inherit;
-}
-b,
-strong {
-  font-weight: bolder;
+  font-weight: 600;
 }
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: monospace;
   font-size: 1em;
 }
 dfn {
@@ -78,6 +73,9 @@ sup {
 }
 sub {
   bottom: -0.25em;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.1px;
 }
 sup {
   top: -0.5em;
@@ -513,7 +511,6 @@ var {
 pre {
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 1.6em;
   max-width: 100%;
   overflow: auto;
   padding: 24px;
@@ -535,15 +532,6 @@ acronym {
 mark,
 ins {
   text-decoration: none;
-}
-small {
-  font-size: 18px;
-  line-height: 27px;
-  letter-spacing: -0.1px;
-}
-b,
-strong {
-  font-weight: 600;
 }
 button,
 input,
@@ -1051,7 +1039,6 @@ label {
 }
 .header-links a:not(.button) {
   font-size: 16px;
-  line-height: 24px;
   letter-spacing: -0.1px;
   font-weight: 600;
   color: #606483;
@@ -1501,7 +1488,6 @@ main {
   flex-wrap: wrap;
   padding-top: 48px;
   padding-bottom: 48px;
-  position: relative;
 }
 .footer-brand,
 .footer-links,
