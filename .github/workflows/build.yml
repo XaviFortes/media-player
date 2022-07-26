@@ -58,6 +58,7 @@ jobs:
 #          chmod +x codecov
 #          ./codecov -t ${CODECOV_TOKEN}
   upload-artifacts:
+    needs: build-linux
     name: Upload Artifacts
     runs-on: self-hosted
     steps:
