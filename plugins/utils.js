@@ -66,3 +66,11 @@ module.exports.getAllPlugins = () => {
 		.filter(isDirectory)
 		.map((name) => path.basename(name));
 };
+module.exports.getPlugin = () => {
+	const isDirectory = (source) => fs.lstatSync(source).isDirectory();
+	return fs
+		.readdirSync(__dirname)
+		.map((name) => path.join(__dirname, name))
+		.filter(isDirectory)
+		.map((name) => path.basename(name));
+};

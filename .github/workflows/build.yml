@@ -53,6 +53,13 @@ jobs:
           #name: codecov-umbrella # optional
           #fail_ci_if_error: true # optional (default = false)
           verbose: true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Upload Linux
+          path: |
+            dist/*.snap
+            dist/*.deb
+            dist/*.AppImage
       - run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov

@@ -405,7 +405,7 @@ app.on("ready", () => {
 				buttons: ["OK", "Install", "Open download page", "Disable updates"],
 				title: "Application Update",
 				message: "A new version is available",
-				detail: `A new version is available ${info.version}\nand can be downloaded at ${downloadLink}\n${info.releaseNotes}`,
+				detail: `A new version is available ${info.version}\nand can be downloaded at ${downloadLink}\nYou currently have version: ${app.version} \n\nDo you want to install it?`,
 			};
 			electron.dialog.showMessageBox(dialogOpts).then((dialogOutput) => {
 				switch (dialogOutput.response) {
@@ -414,7 +414,7 @@ app.on("ready", () => {
 						autoUpdater.downloadUpdate();
 						autoUpdater.on("update-downloaded", () => {
 							autoUpdater.quitAndInstall();
-							});
+						});
 						break;
 					// Open URL
 					case 2:
@@ -444,19 +444,6 @@ app.on("ready", () => {
 				id: parseInt(Math.random() * 1000000, 10),
 				title: 'Youtube Music Player',
 				message: 'No update available',
-			});
-		});
-		autoUpdater.on("download-progress", (progress) => {
-			console.log(`Downloading: ${progress.percent}%`);
-			//show progress bar of download
-			electron.dialog.showMessageBox(null, {
-				icon: "../assets/youtube-music.png",
-				type: "info",
-				title: "Media Player",
-				message: `Downloading: ${progress.percent}%`,
-				buttons: ["OK"],
-				defaultId: 0,
-				cancelId: 0,
 			});
 		});
 		autoUpdater.on("update-downloaded", () => {

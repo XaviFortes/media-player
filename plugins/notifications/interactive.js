@@ -4,7 +4,70 @@ const registerCallback = require("../../providers/song-info");
 const is = require("electron-is");
 const WindowsToaster = require('node-notifier').WindowsToaster;
 
-const notifier = new WindowsToaster({ withFallback: true });
+const notifier = new WindowsToaster({
+    withFallback: true,
+    appID: "com.xavifortes.media-player",
+    appName: "Media Player",
+    customArgs: [
+        "--appID", "com.xavifortes.media-player",
+        "--appName", "Media Player"
+    ],
+
+
+
+    // Optional:
+    // appIcon: pathToAppIcon,
+    // appIconMask: pathToAppIconMask,
+    // sound: pathToSound,
+    // soundVolume: 0.5,
+    // wait: true,
+    // open: true,
+    // openDelay: 0,
+    // close: true,
+    // closeDelay: 0,
+    // actions: [
+    //     {
+    //         title: "Action 1",
+    //         action: () => {
+    //             console.log("Action 1");
+    //         }
+    //     },
+    //     {
+    //         title: "Action 2",
+    //         action: () => {
+    //             console.log("Action 2");
+    //         }
+    //     }
+    // ],
+    // firstClick: () => {  console.log("First click"); },
+    // secondClick: () => { console.log("Second click"); },
+    // mouseOver: () => { console.log("Mouse over"); },
+    // mouseOut: () => { console.log("Mouse out"); },
+    // mouseDown: () => { console.log("Mouse down"); },
+    // mouseUp: () => { console.log("Mouse up"); },
+    // mouseMove: () => { console.log("Mouse move"); },
+    // mouseWheel: () => { console.log("Mouse wheel"); },
+    // keyDown: () => { console.log("Key down"); },
+    // keyUp: () => { console.log("Key up"); },
+    // keyPress: () => { console.log("Key press"); },
+    // dragStart: () => { console.log("Drag start"); },
+    // dragEnd: () => { console.log("Drag end"); },
+    // dragEnter: () => { console.log("Drag enter"); },
+    // dragLeave: () => { console.log("Drag leave"); },
+    // dragOver: () => { console.log("Drag over"); },
+    // drop: () => { console.log("Drop"); },
+    // scroll: () => { console.log("Scroll"); },
+    // resize: () => { console.log("Resize"); },
+    // move: () => { console.log("Move"); },
+    // minimize: () => { console.log("Minimize"); },
+    // maximize: () => { console.log("Maximize"); },
+    // restore: () => { console.log("Restore"); },
+    // close: () => { console.log("Close"); },
+    // blur: () => { console.log("Blur"); },
+    // focus: () => { console.log("Focus"); },
+    // show: () => { console.log("Show"); },
+    // hide: () => { console.log("Hide"); },
+});
 
 //store song controls reference on launch
 let controls;
@@ -60,6 +123,10 @@ function sendToaster(songInfo) {
             icons.previous,
             songInfo.isPaused ? icons.play : icons.pause,
             icons.next
+        ],
+        customArgs: [
+            "--appID", "com.xavifortes.media-player",
+            "--appName", "Media Player"
         ],
         sound: false,
     };

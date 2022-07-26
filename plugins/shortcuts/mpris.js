@@ -5,13 +5,13 @@ const getSongControls = require("../../providers/song-controls");
 
 function setupMPRIS() {
 	const player = mpris({
-		name: "youtube-music",
+		name: "media-player",
 		identity: "YouTube Music",
 		canRaise: true,
 		supportedUriSchemes: ["https"],
 		supportedMimeTypes: ["audio/mpeg"],
 		supportedInterfaces: ["player"],
-		desktopEntry: "youtube-music",
+		desktopEntry: "media-player",
 	});
 
 	return player;

@@ -53,7 +53,9 @@ const mainMenuTemplate = (win) => {
 		{
 			label: "Plugins",
 			submenu: [
+				
 				...getAllPlugins().map((plugin) => {
+					console.log(`${plugin} plugin is loaded`);
 					const pluginPath = path.join(__dirname, "plugins", plugin, "menu.js")
 					if (existsSync(pluginPath)) {
 						if (!config.plugins.isEnabled(plugin)) {
@@ -72,6 +74,115 @@ const mainMenuTemplate = (win) => {
 
 					return pluginEnabledMenu(plugin);
 				}),
+			],
+		},
+		/*
+		{
+			label: "Test",
+			submenu: [
+				
+				(eqa) => {
+					const pluginPath = path.join(__dirname, "plugins", "eq", "menu.js")
+					if (existsSync(pluginPath)) {
+						if (!config.plugins.isEnabled(eqa)) {
+							return pluginEnabledMenu(eqa, "", true, refreshMenu);
+						}
+						const getPluginMenu = require(pluginPath); 
+						return {
+							label: "Equalizer",
+							//
+							submenu: [
+								pluginEnabledMenu("eq", "Enabled", true, refreshMenu),
+								{ type: "separator" },
+								getPluginMenu(win, config.plugins.getOptions("eq"), refreshMenu),
+							],
+							
+						};
+					}
+
+					return pluginEnabledMenu(eqa);
+				},
+				
+				/*
+				{
+					label: "Equalizer",
+					submenu: [
+						reseq => {
+							const pluginPath = path.join(__dirname, "plugins", "eq", "menu.js")
+							return getPluginMenu = require(pluginPath);
+						},
+
+						pluginEnabledMenu("eq", "Enabled", true, refreshMenu),
+						{ type: "separator" },
+						getPluginMenu
+						reseq(win, config.plugins.getOptions("eq"), refreshMenu),
+					],
+				},
+				
+			],
+		},
+		*/
+		
+		{
+			label: "Audio",
+			submenu: [
+				{
+					label: "Equalizer",
+					submenu: [
+						{
+							label: "Enable",
+							type: "checkbox",
+							checked: config.get("options.equalizer.enabled"),
+							click: (item) => {
+								if (item.checked) {
+									config.set("options.equalizer.enabled", true);
+								} else {
+									config.set("options.equalizer.enabled", false);
+								}
+								refreshMenu();
+							}
+						},
+						{ type: "separator" },
+						{
+							label: "Open Equalizer",
+							click: () => {
+								shell.openExternal("https://www.equalizer.fm");
+							}
+						},
+					],
+				},
+				{
+					label: "Volume",
+					submenu: [
+						{
+							label: "Increase",
+							click: () => {
+								win.webContents.send("volume", "increase");
+
+							}
+						},
+						{
+							label: "Decrease",
+							click: () => {
+								win.webContents.send("volume", "decrease");
+							}
+						},
+						{ type: "separator" },
+						{
+							label: "Mute",
+							type: "checkbox",
+							checked: config.get("options.volume.muted"),
+							click: (item) => {
+								if (item.checked) {
+									config.set("options.volume.muted", true);
+								} else {
+									config.set("options.volume.muted", false);
+								}
+								refreshMenu();
+							}
+						},
+					],
+				},
 			],
 		},
 		{
