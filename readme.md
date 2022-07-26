@@ -2,7 +2,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/xavifortes/media-player/badge/main)](https://www.codefactor.io/repository/github/xavifortes/media-player/overview/main)
 # Media Player
  Media Player
- # :)
 ## Download
 ### Linux
 This will be using the latest code.
