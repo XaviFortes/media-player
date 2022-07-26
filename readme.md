@@ -3,3 +3,9 @@
 # Media Player
  Media Player
  # :)
+## Download
+### Linux
+This will be using the latest code.
+If you're using Linux go to the latest artifact and select your preferred installing method.
+### Windows
+Go to releases to find the latest windows app. It isn't really using the last commit code but it's pretty near to that.
