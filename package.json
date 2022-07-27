@@ -113,6 +113,7 @@
 		"electron-unhandled": "^4.0.1",
 		"electron-updater": "^5.0.5",
 		"filenamify": "^4.3.0",
+		"got": "^12.2.0",
 		"hark": "^1.2.3",
 		"html-to-text": "^8.2.0",
 		"jsprim": "^1.4.2",
@@ -130,10 +131,10 @@
 		"electron-devtools-installer": "^3.1.1",
 		"electron-icon-maker": "0.0.5",
 		"jest": "^27.3.1",
+		"json-schema": "^0.4.0",
 		"playwright": "^1.17.1",
 		"rimraf": "^3.0.2",
-		"xo": "^0.45.0",
-		"json-schema": "^0.4.0"
+		"xo": "^0.45.0"
 	},
 	"resolutions": {
 		"glob-parent": "5.1.2",
