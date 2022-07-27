@@ -11,5 +11,7 @@ Go here:
 Once you enter the actions check the latest passed run, it should have the name CI. Others doesn't matter to download artifacts.
 When you enter the latest run you shoud see artifacts and then download whatever you want.
 ### Windows
-Go to releases to find the latest windows app. It isn't really using the last commit code but it's pretty near to that.
+Go to releases to find the latest windows app. ~~It isn't really using the last commit code but it's pretty near to that.~~
 [Releases](https://github.com/XaviFortes/media-player/releases)
+Now you can use the latest code checking the artifacts here:
+[Check the artifacts](https://github.com/XaviFortes/media-player/actions/workflows/build.yml)

@@ -22,7 +22,7 @@ jobs:
     name: Build Linux
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
-    runs-on: self-hosted
+    runs-on: [self-hosted, linux, x64]
     steps:
 #      - uses: codecov/codecov-action@v3
 #        with:
@@ -57,10 +57,10 @@ jobs:
 #          curl -Os https://uploader.codecov.io/latest/linux/codecov
 #          chmod +x codecov
 #          ./codecov -t ${CODECOV_TOKEN}
-  upload-artifacts:
+  upload-artifacts-linux:
     needs: build-linux
-    name: Upload Artifacts
-    runs-on: self-hosted
+    name: Upload Artifacts Linux
+    runs-on: [self-hosted, linux, x64]
     steps:
       - uses: actions/upload-artifact@v3
         with:
@@ -77,40 +77,34 @@ jobs:
           name: Linux - Deb - x64
           path: |
             dist/*.deb
-#  build-windows:
-#     #needs: install
-#     name: Build Windows
-#     env:
-#       GH_TOKEN: ${{ secrets.GH_TOKEN }}
-#     runs-on: self-hosted
-#     steps:
-#       - uses: codecov/codecov-action@v3
-#         with:
-#           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-#           #files: ./coverage1.xml,./coverage2.xml # optional
-#           #flags: unittests # optional
-#           #name: codecov-umbrella # optional
-#           #fail_ci_if_error: true # optional (default = false)
-#           verbose: true
-#       - uses: actions/checkout@v2
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: '16'
-#           #cache: 'yarn'
-#       - run: npm install --global yarn
-#       - run: yarn install
-#       - run: yarn build:win
-#         env:
-#           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-#       - uses: codecov/codecov-action@v3
-#         with:
-#           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-#           #files: ./coverage1.xml,./coverage2.xml # optional
-#           #flags: unittests # optional
-#           #name: codecov-umbrella # optional
-#           #fail_ci_if_error: true # optional (default = false)
-#           verbose: true
-#       #- run: |
-#       #    curl -Os https://uploader.codecov.io/latest/linux/codecov
-#       #    chmod +x codecov
-#       #    ./codecov -t ${CODECOV_TOKEN}
+  build-windows:
+     #needs: install
+     name: Build Windows
+     env:
+       GH_TOKEN: ${{ secrets.GH_TOKEN }}
+     runs-on: [self-hosted, windows, x64]
+     steps:
+       - uses: actions/checkout@v2
+       - uses: actions/setup-node@v3
+         with:
+           node-version: '16'
+           #cache: 'yarn'
+       - run: yarn install
+       - run: yarn build:win
+         env:
+           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  upload-artifacts-windows:
+    needs: build-windows
+    name: Upload Artifacts Windows
+    runs-on: [self-hosted, windows, x64]
+    steps:
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Windows - Setup - x64
+          path: |
+            dist/*Setup*.exe
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Windows - Portable - x64
+          path: |
+            dist/*.exe

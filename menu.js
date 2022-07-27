@@ -76,49 +76,29 @@ const mainMenuTemplate = (win) => {
 				}),
 			],
 		},
+		
 		/*
 		{
 			label: "Test",
 			submenu: [
-				
-				(eqa) => {
-					const pluginPath = path.join(__dirname, "plugins", "eq", "menu.js")
-					if (existsSync(pluginPath)) {
-						if (!config.plugins.isEnabled(eqa)) {
-							return pluginEnabledMenu(eqa, "", true, refreshMenu);
-						}
-						const getPluginMenu = require(pluginPath); 
-						return {
-							label: "Equalizer",
-							//
-							submenu: [
-								pluginEnabledMenu("eq", "Enabled", true, refreshMenu),
-								{ type: "separator" },
-								getPluginMenu(win, config.plugins.getOptions("eq"), refreshMenu),
-							],
-							
-						};
-					}
-
-					return pluginEnabledMenu(eqa);
-				},
-				
-				/*
+				//Get the menu from eq plugin
 				{
-					label: "Equalizer",
+					label: "Test",
 					submenu: [
-						reseq => {
-							const pluginPath = path.join(__dirname, "plugins", "eq", "menu.js")
-							return getPluginMenu = require(pluginPath);
+						{
+							label: "Set eq",
+							click: () => {
+								// import setEqualizer is a function from eq plugin
+								const { setEqualizer } = require("./custom/eq/menu.js");
+								win.webContents.send("setEq", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+								
+								setEqualizer(win, config.plugins.getOptions("eq"), refreshMenu);
+							},
 						},
-
-						pluginEnabledMenu("eq", "Enabled", true, refreshMenu),
-						{ type: "separator" },
-						getPluginMenu
-						reseq(win, config.plugins.getOptions("eq"), refreshMenu),
 					],
 				},
-				
+
+
 			],
 		},
 		*/
@@ -127,7 +107,7 @@ const mainMenuTemplate = (win) => {
 			label: "Audio",
 			submenu: [
 				{
-					label: "Equalizer",
+					label: "Equalizer (WIP)",
 					submenu: [
 						{
 							label: "Enable",
@@ -146,7 +126,10 @@ const mainMenuTemplate = (win) => {
 						{
 							label: "Open Equalizer",
 							click: () => {
-								shell.openExternal("https://www.equalizer.fm");
+								const { setEqualizer } = require("./custom/eq/menu.js");
+								win.webContents.send("setEq", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+								
+								setEqualizer(win, config.plugins.getOptions("eq"), refreshMenu);
 							}
 						},
 					],
@@ -174,8 +157,10 @@ const mainMenuTemplate = (win) => {
 							checked: config.get("options.volume.muted"),
 							click: (item) => {
 								if (item.checked) {
+									win.webContents.send("volume", "mute");
 									config.set("options.volume.muted", true);
 								} else {
+									win.webContents.send("volume", "unmute");
 									config.set("options.volume.muted", false);
 								}
 								refreshMenu();
