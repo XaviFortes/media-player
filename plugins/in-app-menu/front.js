@@ -7,7 +7,7 @@ function $(selector) { return document.querySelector(selector); }
 module.exports = (options) => {
 	let visible = !config.get("options.hideMenu");
 	const bar = new Titlebar({
-		backgroundColor: Color.fromHex("#050505"),
+		backgroundColor: Color.fromHex("#030303"),
 		itemBackgroundColor: Color.fromHex("#1d1d1d"),
 		svgColor: Color.WHITE,
 		menu: visible ? undefined : null

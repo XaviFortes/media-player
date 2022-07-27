@@ -118,7 +118,7 @@ function createMainWindow() {
 		icon: icon,
 		width: windowSize.width,
 		height: windowSize.height,
-		backgroundColor: "#000",
+		backgroundColor: "#030303",
 		show: false,
 		webPreferences: {
 			// TODO: re-enable contextIsolation once it can work with ffmepg.wasm

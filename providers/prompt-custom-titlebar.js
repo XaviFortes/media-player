@@ -2,7 +2,7 @@ const { Titlebar, Color } = require("custom-electron-titlebar");
 
 module.exports = () => {
 	new Titlebar({
-		backgroundColor: Color.fromHex("#050505"),
+		backgroundColor: Color.fromHex("#030303"),
 		minimizable: false,
 		maximizable: false,
 		menu: null
