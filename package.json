@@ -125,8 +125,8 @@
 	},
 	"devDependencies": {
 		"auto-changelog": "^2.4.0",
-		"electron": "^18.2.3",
-		"electron-builder": "^23.3.2",
+		"electron": "^19.0.9",
+		"electron-builder": "^23.3.3",
 		"electron-devtools-installer": "^3.1.1",
 		"electron-icon-maker": "0.0.5",
 		"jest": "^27.3.1",
