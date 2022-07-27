@@ -15,3 +15,11 @@ Go to releases to find the latest windows app. ~~It isn't really using the last 
 [Releases](https://github.com/XaviFortes/media-player/releases)
 Now you can use the latest code checking the artifacts here:
 [Check the artifacts](https://github.com/XaviFortes/media-player/actions/workflows/build.yml)
+
+### Mac
+If you have a Mac you have to build it yourself
+to do so install it with yarn doing this:
+
+`yarn install`
+`yarn build:mac`
+You should see the app inside the folder dist of the project.
