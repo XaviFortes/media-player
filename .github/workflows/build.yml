@@ -39,7 +39,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-          #cache: 'yarn'
+          cache: 'yarn'
       - run: npm install --global yarn
       - run: yarn install
       - run: GH_TOKEN=${{ secrets.GH_TOKEN }} yarn build:linux
@@ -107,4 +107,4 @@ jobs:
         with:
           name: Windows - Portable - x64
           path: |
-            dist/*.exe
+            dist/Youtube Music [0-9]*.exe
