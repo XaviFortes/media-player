@@ -1,5 +1,7 @@
 [![CI](https://github.com/XaviFortes/media-player/actions/workflows/build.yml/badge.svg)](https://github.com/XaviFortes/media-player/actions/workflows/build.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/xavifortes/media-player/badge/main)](https://www.codefactor.io/repository/github/xavifortes/media-player/overview/main)
+[![Downloads](https://img.shields.io/github/downloads/XaviFortes/media-player/total)](https://img.shields.io/github/downloads/XaviFortes/media-player/total)
+[![CommitsMonth](https://img.shields.io/github/commit-activity/m/XaviFortes/media-player)](https://img.shields.io/github/commit-activity/m/XaviFortes/media-player)
 # Video/Music Player
  Youtube Music Player
 ## Download
