@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+## Youtube Media Player
 
-You can use the [editor on GitHub](https://github.com/XaviFortes/media-player/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Download going to releases for latest releases [Releases](https://github.com/XaviFortes/media-player/releases)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+If you want the latest update [Check the artifacts](https://github.com/XaviFortes/media-player/actions/workflows/build.yml)
 
-### Markdown
+### Mac Users
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+If you have a Mac you have to build it yourself
+to do so install it with yarn doing this:
+
+1. `yarn install`
+2. `yarn build:mac`
+
+You should see the app inside the folder dist of the project.
 
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
 
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Issues
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/XaviFortes/media-player/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+If you have any issues/bug/feature request post it on the issue section
