@@ -13,14 +13,6 @@ module.exports = (win, options) => [
 			})),
 		}] :
 		[]),
-	...(is.windows() ?
-		[{
-			label: "Interactive Notifications",
-			type: "checkbox",
-			checked: options.interactive,
-			click: (item) => setOption(options, "interactive", item.checked)
-		}] :
-		[]),
 	{
 		label: "Show notification on unpause",
 		type: "checkbox",

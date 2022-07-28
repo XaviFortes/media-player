@@ -434,7 +434,7 @@ app.on("ready", () => {
 		});
 		autoUpdater.on("error", (error) => {
 			console.log(error);
-			dialog.showErrorBox("Error", error);
+			electron.dialog.showErrorBox("Error", error);
 		});
 		autoUpdater.on("update-not-available", () => {
 			console.log("No update available");
@@ -450,6 +450,9 @@ app.on("ready", () => {
 			console.log("Update downloaded");
 		});
 	}
+
+
+
 
 	if (config.get("options.hideMenu") && !config.get("options.hideMenuWarned")) {
 		electron.dialog.showMessageBox(mainWindow, {
