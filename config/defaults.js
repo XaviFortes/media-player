@@ -5,7 +5,7 @@ const defaultConfig = {
 	},
 	url: "https://music.youtube.com",
 	options: {
-		tray: false,
+		tray: true,
 		appVisible: true,
 		autoUpdates: true,
 		hideMenu: false,
@@ -26,6 +26,9 @@ const defaultConfig = {
 			enabled: true,
 			cache: true,
 			additionalBlockLists: [], // Additional list of filters, e.g "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt"
+		},
+		"audio-compressor": {
+			enabled: true,
 		},
 		"bypass-age-restrictions": {
 			enabled: true,
@@ -52,9 +55,15 @@ const defaultConfig = {
 		},
 		discord: {
 			enabled: true,
-			activityTimoutEnabled: true, // if enabled, the discord rich presence gets cleared when music paused after the time specified below
+			activityTimoutEnabled: false, // if enabled, the discord rich presence gets cleared when music paused after the time specified below
 			activityTimoutTime: 60 * 60 * 1000, // 10 minutes
 			listenAlong: true, // add a "listen along" button to rich presence
+		},
+		downloader: {
+			enabled: true,
+		},
+		"exponential-volume": {
+			enabled: true,
 		},
 		notifications: {
 			enabled: true,
